@@ -1,0 +1,27 @@
+import React from "react";
+import { signInAnonymously } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
+
+const LoginPage = () => {
+
+  const login = async () => {
+
+    await signInAnonymously(auth);
+
+  };
+
+  return (
+
+    <div className="flex justify-center items-center h-screen">
+
+      <button onClick={login}>
+        Login
+      </button>
+
+    </div>
+
+  );
+
+};
+
+export default LoginPage;
