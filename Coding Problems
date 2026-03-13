@@ -1,0 +1,25 @@
+export const INITIAL_PROBLEMS = [
+
+  {
+    id: "p0",
+    title: "Hello World",
+    level: "Basic",
+    description: 'Print "Hello World"',
+    startingCode: {
+      python: 'print("")',
+      javascript: 'console.log("");'
+    }
+  },
+
+  {
+    id: "p1",
+    title: "Two Sum",
+    level: "Medium",
+    description: "Return indices of two numbers that add up to a target.",
+    startingCode: {
+      python: "def two_sum(nums,target):\n pass",
+      javascript: "function twoSum(nums,target){}"
+    }
+  }
+
+];
