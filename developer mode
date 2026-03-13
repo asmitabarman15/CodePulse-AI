@@ -1,0 +1,44 @@
+import React, { useState } from "react";
+import CodeEditor from "../components/CodeEditor";
+import { callGemini } from "../services/geminiService";
+
+const DeveloperMode = () => {
+
+  const [code, setCode] = useState("");
+  const [result, setResult] = useState("");
+
+  const analyze = async () => {
+
+    const res = await callGemini(
+      "Analyze this code and find bugs:\n" + code
+    );
+
+    setResult(res);
+
+  };
+
+  return (
+
+    <div className="flex">
+
+      <div className="w-1/2">
+        <CodeEditor value={code} onChange={setCode} />
+      </div>
+
+      <div className="w-1/2 p-4">
+
+        <button onClick={analyze}>
+          Analyze Code
+        </button>
+
+        <pre>{result}</pre>
+
+      </div>
+
+    </div>
+
+  );
+
+};
+
+export default DeveloperMode;
