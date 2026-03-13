@@ -1,0 +1,26 @@
+import React, { useState } from "react";
+import CodeEditor from "../components/CodeEditor";
+import { INITIAL_PROBLEMS } from "../data/problems";
+
+const LearnerMode = () => {
+
+  const [problem] = useState(INITIAL_PROBLEMS[0]);
+  const [code, setCode] = useState(problem.startingCode.python);
+
+  return (
+
+    <div>
+
+      <h2>{problem.title}</h2>
+
+      <p>{problem.description}</p>
+
+      <CodeEditor value={code} onChange={setCode} />
+
+    </div>
+
+  );
+
+};
+
+export default LearnerMode;
