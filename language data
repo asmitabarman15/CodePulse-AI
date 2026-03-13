@@ -1,0 +1,13 @@
+export const LANGUAGES = [
+
+  { id: "python", name: "Python" },
+
+  { id: "javascript", name: "JavaScript" },
+
+  { id: "cpp", name: "C++" },
+
+  { id: "java", name: "Java" },
+
+  { id: "rust", name: "Rust" }
+
+];
