@@ -1,0 +1,40 @@
+import React, { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+
+import Header from "./components/Header";
+import DeveloperMode from "./pages/DeveloperMode";
+import LearnerMode from "./pages/LearnerMode";
+import LoginPage from "./pages/LoginPage";
+
+import { auth } from "./firebase/firebaseConfig";
+
+export default function App() {
+
+  const [user, setUser] = useState(null);
+  const [mode, setMode] = useState("developer");
+
+  useEffect(() => {
+
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+    });
+
+    return () => unsub();
+
+  }, []);
+
+  if (!user) return <LoginPage />;
+
+  return (
+
+    <div>
+
+      <Header setMode={setMode} currentMode={mode} />
+
+      {mode === "developer" ? <DeveloperMode /> : <LearnerMode />}
+
+    </div>
+
+  );
+
+}
